@@ -1,0 +1,7 @@
+# ignore all
+*
+# except
+!misc/
+!*.py
+!*.pdf
+!.gitignore
