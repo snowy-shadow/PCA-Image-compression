@@ -1,7 +1,7 @@
-# ignore all
-*
-# except
-!misc/
-!*.py
-!*.pdf
-!.gitignore
+# ignore
+*.png
+*.jpg
+.vscode/
+__pycache__/
+
+!misc/*
