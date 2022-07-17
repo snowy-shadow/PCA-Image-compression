@@ -7,7 +7,7 @@ The script uses PCA (princial component analysis) to perform image compression. 
 - This is a <u>_lossy_</u> compression technique. Data will be lost when compression is performed
 - see the PDF file for the maths
 
-PCA breaks down the matrix(which often is a data table with multiple variables) into Eigenvectors and Values known as Eigen decomposition. These Eigenvectors are called components
+PCA breaks down the matrix(which is often a data table with multiple variables) into Eigenvectors and Values known as Eigen decomposition. These Eigenvectors are called components
 
 Given this 8x8 image(enlarged because its only 64 pixels) <br/>
 ![8x8 Pixel Art](./misc/PCA8x8PixelArt.png) <br/>
