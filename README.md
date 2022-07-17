@@ -1,5 +1,5 @@
 # To IB
-- ## *_This is my IB math EE research submited for June 2022, so do not mark it for plagerism thank you_*
+## *_This is my IB math EE research submited for June 2022, so do not mark it for plagerism thank you_*
 
 # PCA Image compression _(not SVD)_ <br/>
 The script uses PCA (princial component analysis) to perform image compression. PCA is not limited to image compression, it can be used to compress a variety of multivariable datasets.
