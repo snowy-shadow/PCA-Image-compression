@@ -12,7 +12,7 @@ PCA breaks down the matrix(which is often a data table with multiple variables) 
 Given this 8x8 image(enlarged because its only 64 pixels) <br/>
 ![8x8 Pixel Art](./misc/PCA8x8PixelArt.png) <br/>
 ![8x8 Pixel Art Enlarged](./misc/8x8PixelGraph.png) <br/> <br/>
-A matrix can be formed by taking its RBG data values and place them into a matrix. Then finding its PCs and ording their eigenvalues from smallest to largest -> <br/>
+A matrix can be formed by taking its RBG data values and place them into a matrix. Then finding its PCs and ording their eigenvalues from largest to smallest(because eigenvalue indicate how important the direction of each eigenvector is) -> <br/>
 ![BGR PCs graph](./misc/BGR%20PCs%20graph.png)<br/><br/>
 and then compression can be applied by selecting the amount of variance(the amount of eigen vectors) to retain. The more variance retained the better the image quality and also larger the file size.<br/>
 - usually aiming to retain an arbitrary 95% variance
