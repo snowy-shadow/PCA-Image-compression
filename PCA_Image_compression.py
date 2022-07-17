@@ -5,7 +5,7 @@ from numpy import float64, linalg as la
 #colors approach -- see pdf -> this is the recommended option, way faster
 
 # read image
-img_src = 'test2.jpg' # name of your image
+img_src = 'PCA8x8PixelArt.png' # name of your image
 
 img = cv2.cvtColor(cv2.imread(img_src), cv2.COLOR_BGR2RGB)
 img_height = img.shape[0]
