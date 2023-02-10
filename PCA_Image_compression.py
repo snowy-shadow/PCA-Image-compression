@@ -5,7 +5,7 @@ from numpy import float64, linalg as la
 #colors approach -- see pdf -> this is the recommended option, way faster
 
 # read image
-img_src = 'PCA8x8PixelArt.png' # name of your image
+img_src = './misc/PCA8x8PixelArt.png' # name of your image
 
 img = cv2.cvtColor(cv2.imread(img_src), cv2.COLOR_BGR2RGB)
 img_height = img.shape[0]
@@ -27,6 +27,7 @@ r_eigenValue, r_eigenVector = la.eigh(r_cov)
 # sort eigenvalue in decreasing order
 b_idx = np.argsort(b_eigenValue)[::-1]
 b_eigenValue = b_eigenValue[b_idx]
+print(b_eigenValue)
 
 g_idx = np.argsort(g_eigenValue)[::-1]
 g_eigenValue = g_eigenValue[g_idx]
@@ -35,11 +36,11 @@ r_idx = np.argsort(r_eigenValue)[::-1]
 r_eigenValue = r_eigenValue[r_idx]
 
 # sort eigenvectors according to same index
-b_eigenVector = b_eigenVector[:,b_idx]
+b_eigenVector = b_eigenVector[b_idx]
 
-g_eigenVector = g_eigenVector[:,g_idx]
+g_eigenVector = g_eigenVector[g_idx]
 
-r_eigenVector = b_eigenVector[:,r_idx]
+r_eigenVector = b_eigenVector[r_idx]
 
 # show graph
 fig = plt.figure(figsize=(8, 6))
