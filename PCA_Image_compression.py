@@ -5,7 +5,7 @@ from numpy import float64, linalg as la
 #colors approach -- see pdf -> this is the recommended option, way faster
 
 # read image
-img_src = './misc/PCA8x8PixelArt.png' # name of your image
+img_src = 'test.jpg' # name of your image
 
 img = cv2.cvtColor(cv2.imread(img_src), cv2.COLOR_BGR2RGB)
 img_height = img.shape[0]
@@ -13,6 +13,8 @@ img_width = img.shape[1]
 
 # split into BGR matrices
 blue, green, red = cv2.split(img)
+
+print(blue.shape)
 
 # covariance matrix
 b_cov = np.cov(blue, rowvar = True, bias = True)
@@ -36,11 +38,11 @@ r_idx = np.argsort(r_eigenValue)[::-1]
 r_eigenValue = r_eigenValue[r_idx]
 
 # sort eigenvectors according to same index
-b_eigenVector = b_eigenVector[b_idx]
+b_eigenVector = b_eigenVector[:, b_idx]
 
-g_eigenVector = g_eigenVector[g_idx]
+g_eigenVector = g_eigenVector[:, g_idx]
 
-r_eigenVector = b_eigenVector[r_idx]
+r_eigenVector = b_eigenVector[:, r_idx]
 
 # show graph
 fig = plt.figure(figsize=(8, 6))
@@ -119,16 +121,16 @@ plt.title("88.8% B, 85.4% G, 85.9% R", size = 10)
 plt.imshow(img_reduced(blue, green, red, b_eigenVector, g_eigenVector, r_eigenVector, [3, 3, 3])) # array values controls compression amount,
 fig.add_subplot(323)                                                                              # less == more compression
 plt.title("96.4% B, 93.1% G, 93.7% R", size = 10)
-plt.imshow(img_reduced(blue, green, red, b_eigenVector, g_eigenVector, r_eigenVector, [4, 4, 4]))
+plt.imshow(img_reduced(blue, green, red, b_eigenVector, g_eigenVector, r_eigenVector, [150, 150, 150]))
 fig.add_subplot(324)
 plt.title("99.9% B, 98.7% G, 98.7% R", size = 10)
-plt.imshow(img_reduced(blue, green, red, b_eigenVector, g_eigenVector, r_eigenVector, [5, 5, 5]))
+plt.imshow(img_reduced(blue, green, red, b_eigenVector, g_eigenVector, r_eigenVector, [200, 200, 200]))
 fig.add_subplot(325)
 plt.title("100% BGR, 7 eigenvectors", size = 10)
-plt.imshow(img_reduced(blue, green, red, b_eigenVector, g_eigenVector, r_eigenVector, [7, 7, 7]))
+plt.imshow(img_reduced(blue, green, red, b_eigenVector, g_eigenVector, r_eigenVector, [500, 500, 500]))
 fig.add_subplot(326)
 plt.title("100% BGR, all 8 eigenvectors", size = 10)
-plt.imshow(img_reduced(blue, green, red, b_eigenVector, g_eigenVector, r_eigenVector, [8, 8, 8]))
+plt.imshow(img_reduced(blue, green, red, b_eigenVector, g_eigenVector, r_eigenVector, [1000, 1000, 1000]))
 plt.tight_layout()
 plt.show()
 
